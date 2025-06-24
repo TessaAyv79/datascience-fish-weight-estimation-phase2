@@ -1,0 +1,6 @@
+path: /home/tessaayv/datascience-weight-estimation/TheFishProject4_v1/datasets/species
+train: train
+val: val
+nc: 2
+names: ['0', '1']
+

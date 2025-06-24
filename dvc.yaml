@@ -1,0 +1,31 @@
+stages:
+  preprocess:
+    cmd: python src/data_preprocessing.py
+    deps:
+    - src/data_preprocessing.py
+    - data/squid_dataset.csv
+    outs:
+    - data/processed
+  train:
+    cmd: python src/train.py
+    deps:
+    - src/train.py
+    - src/dataset.py
+    - data/processed
+    - data/squid_dataset.csv
+    outs:
+    - models/model.pth
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - src/evaluate.py
+    - models/model.pth
+    - data/processed
+    - data/squid_dataset.csv
+  create-fixed-csv:
+    cmd: python src/create_fixed_csv.py
+    deps:
+    - data/processed
+    - src/create_fixed_csv.py
+    outs:
+    - data/fixed_dataset.csv

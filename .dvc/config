@@ -1,0 +1,4 @@
+[core]
+    remote = my_remote_name
+['remote "my_remote_name"']
+    url = s3://your-bucket-name/path/to/data

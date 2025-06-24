@@ -1,0 +1,14 @@
+names:
+- 0-20g
+- 20-40g
+- 40-60g
+- 60-80g
+- 80-100g
+- 100-120g
+- 120-140g
+- 140-160g
+- 160-180g
+- 180-200g
+nc: 10
+train: datasets/weight/train
+val: datasets/weight/val

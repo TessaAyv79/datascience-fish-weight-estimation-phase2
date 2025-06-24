@@ -1,0 +1,7 @@
+names:
+- light
+- medium
+- dark
+nc: 3
+train: datasets/color/train
+val: datasets/color/val

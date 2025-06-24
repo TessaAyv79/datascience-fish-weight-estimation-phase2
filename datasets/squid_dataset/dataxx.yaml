@@ -1,0 +1,5 @@
+path: ../datasets/species
+train: train
+val: val
+nc: 2
+names: ['Loligo', 'Illex']

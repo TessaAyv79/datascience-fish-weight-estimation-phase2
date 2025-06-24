@@ -1,0 +1,81 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/data_preprocessing.py
+    deps:
+    - path: data/squid_dataset.csv
+      hash: md5
+      md5: 2df7bdaa6e572ee7d25027b2b818375c
+      size: 283557
+    - path: src/data_preprocessing.py
+      hash: md5
+      md5: 19c41dc39ccb10f7b01b884d821034a1
+      size: 1127
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: 1e5ddf2b1b2352a160a0fb831a70b7ce.dir
+      size: 14442428
+      nfiles: 1517
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: 1e5ddf2b1b2352a160a0fb831a70b7ce.dir
+      size: 14442428
+      nfiles: 1517
+    - path: data/squid_dataset.csv
+      hash: md5
+      md5: 2df7bdaa6e572ee7d25027b2b818375c
+      size: 283557
+    - path: src/dataset.py
+      hash: md5
+      md5: c17c85e924a6ef1af4ae455bc67fc6c7
+      size: 1600
+    - path: src/train.py
+      hash: md5
+      md5: fb5523268a05ede2933138be291ddf4e
+      size: 2148
+    outs:
+    - path: models/model.pth
+      hash: md5
+      md5: a5081659b2241d816e7f6ed8a482975e
+      size: 9128459
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: 1e5ddf2b1b2352a160a0fb831a70b7ce.dir
+      size: 14442428
+      nfiles: 1517
+    - path: data/squid_dataset.csv
+      hash: md5
+      md5: 2df7bdaa6e572ee7d25027b2b818375c
+      size: 283557
+    - path: models/model.pth
+      hash: md5
+      md5: a5081659b2241d816e7f6ed8a482975e
+      size: 9128459
+    - path: src/evaluate.py
+      hash: md5
+      md5: d41d8cd98f00b204e9800998ecf8427e
+      size: 0
+  create-fixed-csv:
+    cmd: python src/create_fixed_csv.py
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: 1e5ddf2b1b2352a160a0fb831a70b7ce.dir
+      size: 14442428
+      nfiles: 1517
+    - path: src/create_fixed_csv.py
+      hash: md5
+      md5: d29b241cf7ee5cc13c3c525b8f8551b3
+      size: 643
+    outs:
+    - path: data/fixed_dataset.csv
+      hash: md5
+      md5: 473cd68404260e0be3d3bd301b7083ef
+      size: 68280

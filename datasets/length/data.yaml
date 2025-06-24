@@ -1,0 +1,10 @@
+names:
+- 3-7cm
+- 7-11cm
+- 11-15cm
+- 15-19cm
+- 19-23cm
+- 23-27cm
+nc: 6
+train: datasets/length/train
+val: datasets/length/val

@@ -1,0 +1,13 @@
+TheFishProject3/
+TheFishProject2/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.so
+*.deb
+*.zip
+*.tar.gz
+*.log
+*.swp
+.DS_Store
